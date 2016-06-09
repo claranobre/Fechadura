@@ -1,0 +1,53 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+	while(1)
+	{
+		char string[4];
+		char enter[2]
+		int i = 0;
+
+		printf("Digite sua senha  de 4 digitos: ");
+
+        while (i < 4)
+        {
+			string[i] = getch();
+
+			if (string[i] == 8)
+			{
+				printf("\b");
+				printf(" ");
+				printf("\b");
+				if (i == 0)
+					continue;
+				i--;
+				continue;
+			}
+			i ++;
+			printf("*");
+		}
+
+        string[4] = '\0' // termina a string.
+
+        enter[0] = getch();
+
+        if (enter[0] == 35) // enter confirma
+		{
+			printf("\n%s\n", string);
+		}
+		else if (enter[0] == 27) // esc sai do loop
+		{
+			printf("\nSaindo...\n");
+			break;	
+		}
+
+		// qualquer outra tecla faz o loop voltar do inicio
+
+	}
+
+	system("PAUSE");
+	return 0;	
+}
