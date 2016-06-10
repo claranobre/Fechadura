@@ -128,7 +128,8 @@ void fechadoOk(){                                           //unlocked
     cout << "Acesso Liberado!";                       //Emite mensagem
 
     /* digitalWrite(redPin, LOW);                           //Apaga LED Vermelho
-    digitalWrite(yellowPin, LOW);                      //Apaga LED Amarelo*/
+    digitalWrite(yellowPin, LOW);                      //Apaga LED Amarelo
+    */
 
     //Executa 1 vez +- 5 segundos, emite sinal e abre a fechadura
     for (int x = 0; x < 1; x++){
