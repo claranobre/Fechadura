@@ -9,6 +9,7 @@
 #include <iostream>
 
 #define port 4325
+#define inRele 13
 
 using namespace std;
 
@@ -39,7 +40,9 @@ byte pinoColuna[colunas] = {5,4,3,2};
 Keypad keypad = Keypad(makeKeymap(teclas), pinoLinha, pinoColuna, linhas, colunas);
 
 void setup(){
-    fechadoOk(true);
+    Serial.begin(9600); //Inicia a porta serial
+    pinMode(inRele, INPUT); // define o pino 13 como entrada (recebe)
+    //fechadoOk(true);
 }
 
 /*
@@ -64,7 +67,9 @@ void loop(){
                   posicao++;                           //da senha correspondente, soma 1 no contador
 
               if (posicao == 4 )                        //Se contador chegou a 4 e com dígitos corretos,
-                  fechadoOk(false);                     //desbloqueia sistema
+                  digitalWrite(inRele, HIGH);
+                  delayMicroseconds(10);
+                  //fechadoOk(false);                     //desbloqueia sistema
 
               if ((key == '#') || (entrada == 4)){     //Se foi pressionada a tecla "#' ou foram feitas
                                                        //4 entradas,
@@ -103,10 +108,11 @@ void key_init(){
     cout << "Entre com a senha: \n";
     count = 0;  //Variável count é zero na entrada da senha
 
+    /*
     digitalWrite(redPin, LOW);                            //Apaga LED Vermelho
     digitalWrite(yellowPin, HIGH);                      //Acende LED Amarelo
     digitalWrite(greenPin, LOW);                        //Apaga LED Verde
-
+    */
 }
 
 /*
@@ -144,9 +150,9 @@ int main(int argc, char *argv[])
 
     int bytesenviados;
 
-    /*Comando comando;
+    Comando comando;
     comando.id = 0;
-    comando.enable = true;*/
+    comando.enable = true;
 
     /*
      * Configurações do endereço
