@@ -41,7 +41,7 @@ Keypad keypad = Keypad(makeKeymap(teclas), pinoLinha, pinoColuna, linhas, coluna
 
 void setup(){
     Serial.begin(9600); //Inicia a porta serial
-    pinMode(inRele, INPUT); // define o pino 13 como entrada (recebe)
+    pinMode(inRele, INPUT); // define o pino 50 como entrada (recebe)
     //fechadoOk(true);
 }
 
@@ -101,12 +101,17 @@ void loop(){
 void key_init(){
     int count = 0; //Variável count é zero na inicialização
 
+    digitalWrite(inRele, LOW);
+
     cout << "Acesso ao Sistema: \n";
 
-    void code_entry_init();
+    code_entry_init();
 
     cout << "Entre com a senha: \n";
     count = 0;  //Variável count é zero na entrada da senha
+
+    fechadoOk();
+    digitalWrite(inRele, HIGH);
 
     /*
     digitalWrite(redPin, LOW);                            //Apaga LED Vermelho
@@ -122,20 +127,21 @@ void fechadoOk(){                                           //unlocked
 
     cout << "Acesso Liberado!";                       //Emite mensagem
 
-    digitalWrite(redPin, LOW);                           //Apaga LED Vermelho
-    digitalWrite(yellowPin, LOW);                      //Apaga LED Amarelo
+    /* digitalWrite(redPin, LOW);                           //Apaga LED Vermelho
+    digitalWrite(yellowPin, LOW);                      //Apaga LED Amarelo*/
 
-    //Executa 20 vezes +- 5 segundos, emite som e pisca LED verde
-    for (int x = 0; x < 20; x++){
+    //Executa 1 vez +- 5 segundos, emite sinal e abre a fechadura
+    for (int x = 0; x < 1; x++){
 
-    digitalWrite(greenPin, HIGH);
-    tone(audioPin, 2000, 100);
+    digitalWrite(inRele, HIGH);
     delay(duration);
-    noTone(audioPin);
+
+    /*noTone(audioPin);
     digitalWrite(greenPin, LOW);
     tone(audioPin, 2000, 100);
     delay(duration);
-    noTone(audioPin);
+    noTone(audioPin);*/
+
     delay(250);
     }
   }
