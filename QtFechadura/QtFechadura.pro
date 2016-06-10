@@ -7,5 +7,8 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += \
+    fechadura.cpp
+
+HEADERS +=
 
