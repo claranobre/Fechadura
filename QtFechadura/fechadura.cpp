@@ -9,7 +9,7 @@
 #include <iostream>
 
 #define port 4325
-#define inRele 13
+#define inRele 50
 
 using namespace std;
 
