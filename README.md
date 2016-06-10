@@ -1,5 +1,6 @@
 ## Projeto Fechadura: Usando a BeagleBone Black e uma fechadura elétrica
-Autores: Ana Clara Nobre [GitHub] (https://github.com/claranobre) e Ícaro Heitor [GitHub] (https://github.com/icarotangara)
+Autores: Ana Clara Nobre <[GitHub] (https://github.com/claranobre)>
+		Ícaro Heitor <[GitHub] (https://github.com/icarotangara)>
 
 
 ** Documentação do projeto: **
